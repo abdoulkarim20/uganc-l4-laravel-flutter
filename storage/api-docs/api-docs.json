@@ -1,0 +1,1045 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gestion Garage API",
+        "description": "Documentation de l'API Gestion Garage",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Serveur principal"
+        }
+    ],
+    "paths": {
+        "/api/clients": {
+            "get": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Lister les clients",
+                "description": "Display a listing of the resource.",
+                "operationId": "a53b083ee60f942c405b55be2f2117b9",
+                "responses": {
+                    "200": {
+                        "description": "Liste des clients recuperee avec succes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Creer un client",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "77bf6aecca49f5534d3970adeae37116",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nom",
+                                    "prenom"
+                                ],
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Diallo"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Mamadou"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "622000000"
+                                    },
+                                    "adresse": {
+                                        "type": "string",
+                                        "example": "Conakry"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Client cree avec succes"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/clients/{id}": {
+            "get": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Afficher un client",
+                "description": "Display the specified resource.",
+                "operationId": "44968021d7bb28d80a4750383aaba04d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du client",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Client recupere avec succes"
+                    },
+                    "404": {
+                        "description": "Client introuvable"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Modifier un client",
+                "description": "Update the specified resource in storage.",
+                "operationId": "6e00beceb6af929a7b1fb096ad218c8d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du client",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nom",
+                                    "prenom"
+                                ],
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Bah"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Aissatou"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "628111111"
+                                    },
+                                    "adresse": {
+                                        "type": "string",
+                                        "example": "Kipe"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Client modifie avec succes"
+                    },
+                    "404": {
+                        "description": "Client introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Supprimer un client",
+                "description": "Remove the specified resource from storage.",
+                "operationId": "d2745e4ba1c3e0fd19d77300ea991354",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du client",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Client supprime avec succes"
+                    },
+                    "404": {
+                        "description": "Client introuvable"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Clients"
+                ],
+                "summary": "Modifier partiellement un client",
+                "operationId": "ad7ced70583f934a192fee0fd0621a36",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du client",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Bah"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Aissatou"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "628111111"
+                                    },
+                                    "adresse": {
+                                        "type": "string",
+                                        "example": "Kipe"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Client modifie avec succes"
+                    },
+                    "404": {
+                        "description": "Client introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/mecaniciens": {
+            "get": {
+                "tags": [
+                    "Mecaniciens"
+                ],
+                "summary": "Lister les mecaniciens",
+                "operationId": "4e039f38de2deca332d02d0879cc93b1",
+                "responses": {
+                    "200": {
+                        "description": "Liste des mecaniciens recuperee avec succes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Mecaniciens"
+                ],
+                "summary": "Creer un mecanicien",
+                "operationId": "550143570673a7158cbd29abbf29458d",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nom",
+                                    "prenom",
+                                    "specialite"
+                                ],
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Camara"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Ibrahima"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "624000000"
+                                    },
+                                    "specialite": {
+                                        "type": "string",
+                                        "example": "Moteur diesel"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Mecanicien cree avec succes"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/mecaniciens/{id}": {
+            "get": {
+                "tags": [
+                    "Mecaniciens"
+                ],
+                "summary": "Afficher un mecanicien",
+                "operationId": "de9d0cdbab2b3e46b5ce345217882137",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du mecanicien",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mecanicien recupere avec succes"
+                    },
+                    "404": {
+                        "description": "Mecanicien introuvable"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Mecaniciens"
+                ],
+                "summary": "Modifier un mecanicien",
+                "operationId": "9466f4ad87fda62990b6fd2c8a5d3f36",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du mecanicien",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nom",
+                                    "prenom",
+                                    "specialite"
+                                ],
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Bah"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Moussa"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "628111111"
+                                    },
+                                    "specialite": {
+                                        "type": "string",
+                                        "example": "Electricite auto"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mecanicien modifie avec succes"
+                    },
+                    "404": {
+                        "description": "Mecanicien introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Mecaniciens"
+                ],
+                "summary": "Supprimer un mecanicien",
+                "operationId": "d994d707cb2d8c0339ec2a82f2b90ea7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du mecanicien",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Mecanicien supprime avec succes"
+                    },
+                    "404": {
+                        "description": "Mecanicien introuvable"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Mecaniciens"
+                ],
+                "summary": "Modifier partiellement un mecanicien",
+                "operationId": "a8bf1d84bb00734fd2915efe42fb90f4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du mecanicien",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "example": "Bah"
+                                    },
+                                    "prenom": {
+                                        "type": "string",
+                                        "example": "Moussa"
+                                    },
+                                    "telephone": {
+                                        "type": "string",
+                                        "example": "628111111"
+                                    },
+                                    "specialite": {
+                                        "type": "string",
+                                        "example": "Electricite auto"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mecanicien modifie avec succes"
+                    },
+                    "404": {
+                        "description": "Mecanicien introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/reparations": {
+            "get": {
+                "tags": [
+                    "Reparations"
+                ],
+                "summary": "Lister les reparations",
+                "operationId": "4f69f77028e02a49ea1f76b437daab76",
+                "responses": {
+                    "200": {
+                        "description": "Liste des reparations recuperee avec succes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reparations"
+                ],
+                "summary": "Creer une reparation",
+                "operationId": "5c96d42f3a8b68ae9274730b2f3494b9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vehicule_id",
+                                    "mecanicien_id",
+                                    "date_reparation",
+                                    "description",
+                                    "cout",
+                                    "statut"
+                                ],
+                                "properties": {
+                                    "vehicule_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "mecanicien_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_reparation": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2026-06-12"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Vidange moteur et controle des freins"
+                                    },
+                                    "cout": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 250000
+                                    },
+                                    "statut": {
+                                        "type": "string",
+                                        "example": "planifiee",
+                                        "enum": [
+                                            "planifiee",
+                                            "en_cours",
+                                            "terminee",
+                                            "annulee"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Reparation creee avec succes"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/reparations/{id}": {
+            "get": {
+                "tags": [
+                    "Reparations"
+                ],
+                "summary": "Afficher une reparation",
+                "operationId": "a02d0f0bf99ad91fea66fcc2df4d2dac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de la reparation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reparation recuperee avec succes"
+                    },
+                    "404": {
+                        "description": "Reparation introuvable"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reparations"
+                ],
+                "summary": "Modifier une reparation",
+                "operationId": "606b0f2367dd4d89afcae2b9532a7d6b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de la reparation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vehicule_id",
+                                    "mecanicien_id",
+                                    "date_reparation",
+                                    "description",
+                                    "cout",
+                                    "statut"
+                                ],
+                                "properties": {
+                                    "vehicule_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "mecanicien_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_reparation": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2026-06-13"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Remplacement des plaquettes de frein"
+                                    },
+                                    "cout": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 300000
+                                    },
+                                    "statut": {
+                                        "type": "string",
+                                        "example": "en_cours",
+                                        "enum": [
+                                            "planifiee",
+                                            "en_cours",
+                                            "terminee",
+                                            "annulee"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reparation modifiee avec succes"
+                    },
+                    "404": {
+                        "description": "Reparation introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reparations"
+                ],
+                "summary": "Supprimer une reparation",
+                "operationId": "e0ae3bc8dfd8e1442bc73475d62e1cbe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de la reparation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Reparation supprimee avec succes"
+                    },
+                    "404": {
+                        "description": "Reparation introuvable"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Reparations"
+                ],
+                "summary": "Modifier partiellement une reparation",
+                "operationId": "0f0fd715aa39c651bfaa4f77f620a47a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant de la reparation",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "vehicule_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "mecanicien_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "date_reparation": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "example": "2026-06-13"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "Remplacement des plaquettes de frein"
+                                    },
+                                    "cout": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 300000
+                                    },
+                                    "statut": {
+                                        "type": "string",
+                                        "example": "terminee",
+                                        "enum": [
+                                            "planifiee",
+                                            "en_cours",
+                                            "terminee",
+                                            "annulee"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Reparation modifiee avec succes"
+                    },
+                    "404": {
+                        "description": "Reparation introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/vehicules": {
+            "get": {
+                "tags": [
+                    "Vehicules"
+                ],
+                "summary": "Lister les vehicules",
+                "operationId": "92f70b047aec0a1f198bd4070eebf006",
+                "responses": {
+                    "200": {
+                        "description": "Liste des vehicules recuperee avec succes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Vehicules"
+                ],
+                "summary": "Creer un vehicule",
+                "operationId": "fe0bdc03b05e9a4026e0bc1f1f532ee5",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "client_id",
+                                    "immatriculation",
+                                    "marque",
+                                    "modele"
+                                ],
+                                "properties": {
+                                    "client_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "immatriculation": {
+                                        "type": "string",
+                                        "example": "RC-1234-AB"
+                                    },
+                                    "marque": {
+                                        "type": "string",
+                                        "example": "Toyota"
+                                    },
+                                    "modele": {
+                                        "type": "string",
+                                        "example": "Corolla"
+                                    },
+                                    "annee": {
+                                        "type": "integer",
+                                        "example": 2022
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Vehicule cree avec succes"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        },
+        "/api/vehicules/{id}": {
+            "get": {
+                "tags": [
+                    "Vehicules"
+                ],
+                "summary": "Afficher un vehicule",
+                "operationId": "bdc297f5b091ddaf6eb63bf5f87e1dbf",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du vehicule",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vehicule recupere avec succes"
+                    },
+                    "404": {
+                        "description": "Vehicule introuvable"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Vehicules"
+                ],
+                "summary": "Modifier un vehicule",
+                "operationId": "71d9f63efc1782da6a4c7890e0b47c57",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du vehicule",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "client_id",
+                                    "immatriculation",
+                                    "marque",
+                                    "modele"
+                                ],
+                                "properties": {
+                                    "client_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "immatriculation": {
+                                        "type": "string",
+                                        "example": "RC-5678-CD"
+                                    },
+                                    "marque": {
+                                        "type": "string",
+                                        "example": "Hyundai"
+                                    },
+                                    "modele": {
+                                        "type": "string",
+                                        "example": "Tucson"
+                                    },
+                                    "annee": {
+                                        "type": "integer",
+                                        "example": 2023
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Vehicule modifie avec succes"
+                    },
+                    "404": {
+                        "description": "Vehicule introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Vehicules"
+                ],
+                "summary": "Supprimer un vehicule",
+                "operationId": "7fd691db31af0a439b0df195730f011f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du vehicule",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vehicule supprime avec succes"
+                    },
+                    "404": {
+                        "description": "Vehicule introuvable"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Vehicules"
+                ],
+                "summary": "Modifier partiellement un vehicule",
+                "operationId": "aacfd3dd8fda18aba44a4a0159f5ce9f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Identifiant du vehicule",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "client_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "immatriculation": {
+                                        "type": "string",
+                                        "example": "RC-5678-CD"
+                                    },
+                                    "marque": {
+                                        "type": "string",
+                                        "example": "Hyundai"
+                                    },
+                                    "modele": {
+                                        "type": "string",
+                                        "example": "Tucson"
+                                    },
+                                    "annee": {
+                                        "type": "integer",
+                                        "example": 2023
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Vehicule modifie avec succes"
+                    },
+                    "404": {
+                        "description": "Vehicule introuvable"
+                    },
+                    "422": {
+                        "description": "Erreur de validation"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Clients",
+            "description": "Clients"
+        },
+        {
+            "name": "Mecaniciens",
+            "description": "Mecaniciens"
+        },
+        {
+            "name": "Reparations",
+            "description": "Reparations"
+        },
+        {
+            "name": "Vehicules",
+            "description": "Vehicules"
+        }
+    ]
+}
