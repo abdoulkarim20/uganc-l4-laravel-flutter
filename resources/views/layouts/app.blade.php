@@ -25,16 +25,12 @@
     <div class="app-shell">
         <aside class="sidebar">
             <a class="brand" href="{{ route('dashboard') }}">
-                <span class="brand-mark">GG</span>
-                <span>
-                    <strong>GaragePro</strong>
-                    <small>Gestion garage</small>
-                </span>
+                <img class="brand-logo-only" src="{{ asset('images/garagix-logo.png') }}" alt="GaragiX">
             </a>
 
-            <nav class="nav-list">
+            <nav class="menu">
                 @foreach ($links as $link)
-                    <a class="nav-link {{ request()->routeIs($link['route']) || request()->routeIs(str_replace('.index', '.*', $link['route'])) ? 'active' : '' }}"
+                    <a class="menu-link {{ request()->routeIs($link['route']) || request()->routeIs(str_replace('.index', '.*', $link['route'])) ? 'active' : '' }}"
                         href="{{ route($link['route']) }}">
                         <span class="nav-icon">{{ $link['abbr'] }}</span>
                         {{ $link['label'] }}
