@@ -14,11 +14,11 @@
 <body>
     @php
         $links = [
-            ['label' => 'Dashboard', 'route' => 'dashboard', 'icon' => 'grid'],
-            ['label' => 'Clients', 'route' => 'clients.index', 'icon' => 'people'],
-            ['label' => 'Véhicules', 'route' => 'vehicules.index', 'icon' => 'car-front'],
-            ['label' => 'Mécaniciens', 'route' => 'mecaniciens.index', 'icon' => 'wrench'],
-            ['label' => 'Réparations', 'route' => 'reparations.index', 'icon' => 'tools'],
+            ['label' => 'Tableau de bord', 'route' => 'dashboard', 'abbr' => 'DB'],
+            ['label' => 'Clients', 'route' => 'clients.index', 'abbr' => 'CL'],
+            ['label' => 'Véhicules', 'route' => 'vehicules.index', 'abbr' => 'VH'],
+            ['label' => 'Mécaniciens', 'route' => 'mecaniciens.index', 'abbr' => 'MC'],
+            ['label' => 'Réparations', 'route' => 'reparations.index', 'abbr' => 'RP'],
         ];
     @endphp
 
@@ -27,8 +27,8 @@
             <a class="brand" href="{{ route('dashboard') }}">
                 <span class="brand-mark">GG</span>
                 <span>
-                    <strong>Gestion Garage</strong>
-                    <small>Système de gestion</small>
+                    <strong>GaragePro</strong>
+                    <small>Gestion garage</small>
                 </span>
             </a>
 
@@ -36,7 +36,7 @@
                 @foreach ($links as $link)
                     <a class="nav-link {{ request()->routeIs($link['route']) || request()->routeIs(str_replace('.index', '.*', $link['route'])) ? 'active' : '' }}"
                         href="{{ route($link['route']) }}">
-                        <span class="nav-icon">{{ strtoupper(substr($link['label'], 0, 1)) }}</span>
+                        <span class="nav-icon">{{ $link['abbr'] }}</span>
                         {{ $link['label'] }}
                     </a>
                 @endforeach

@@ -10,6 +10,7 @@
 }
 
 @layer base {
+    :root { --nav: #0f172d; }
     * { box-sizing: border-box; }
     body {
         margin: 0;
@@ -23,29 +24,38 @@
 }
 
 @layer components {
-    .app-shell { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+    .app-shell { display: grid; grid-template-columns: 347px 1fr; min-height: 100vh; }
     .sidebar {
-        position: sticky; top: 0; height: 100vh; padding: 24px;
-        background: #101623; color: #eef4ff; display: flex; flex-direction: column; gap: 28px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        padding: 24px 18px;
+        color: #e5e7eb;
+        background: var(--nav);
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand { display: flex; align-items: center; gap: 15px; padding-left: 11px; }
     .brand-mark {
-        display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px;
-        background: #2dd4bf; color: #0b1220; font-weight: 800;
+        display: grid; place-items: center; width: 55px; height: 55px; border-radius: 8px;
+        background: #ff4057; color: #fff; font-size: 20px; font-weight: 800;
     }
     .brand strong, .brand small { display: block; }
-    .brand small, .eyebrow { color: #7b879d; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+    .brand strong { font-size: 20px; line-height: 1.05; font-weight: 800; }
+    .brand small { margin-top: 2px; color: #b9c7e6; font-size: 16px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    .eyebrow { color: #7b879d; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
     .sidebar .eyebrow, .sidebar-card p { color: #95a2ba; }
     .nav-list { display: grid; gap: 8px; }
     .nav-link {
-        display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 8px;
-        color: #c9d3e7; transition: .2s ease;
+        display: flex; align-items: center; gap: 15px; min-height: 52px; padding: 10px 15px; border-radius: 8px;
+        color: #f8fbff; font-size: 19px; font-weight: 800; transition: .2s ease;
     }
-    .nav-link:hover, .nav-link.active { background: #1d2637; color: #fff; }
-    .nav-link.active { box-shadow: inset 3px 0 0 #2dd4bf; }
+    .nav-link:hover, .nav-link.active { background: #1a2440; color: #fff; }
+    .nav-link.active { box-shadow: none; }
     .nav-icon {
-        display: grid; place-items: center; width: 28px; height: 28px; border-radius: 7px;
-        background: rgba(255,255,255,.08); font-size: 12px; font-weight: 800;
+        display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px;
+        background: #303951; color: #fff; font-size: 13px; font-weight: 800;
     }
     .sidebar-card { margin-top: auto; padding: 18px; border: 1px solid #263246; border-radius: 8px; background: #151d2b; }
     .sidebar-card strong { display: block; margin: 8px 0; font-size: 22px; }
