@@ -1,40 +1,42 @@
 # GARAGIX
 
-GARAGIX est une plateforme de gestion automobile pour les ateliers modernes.
+GARAGIX est une plateforme web de gestion automobile pour les ateliers modernes.
 
-Elle permet de centraliser les clients, véhicules, mécaniciens et réparations dans un espace simple, clair et responsive.
+Elle permet de gérer les clients, véhicules, mécaniciens et réparations depuis un espace simple, clair et responsive.
 
 ## Contexte
 
-L’objectif de GARAGIX est d’aider un garage à suivre son activité quotidienne :
+GARAGIX aide un garage à suivre son activité quotidienne :
 
-- enregistrer les clients
-- gérer les véhicules
-- affecter les réparations aux mécaniciens
-- suivre les statuts et les coûts
-- garder une vue claire sur l’activité de l’atelier
+- clients
+- véhicules
+- mécaniciens
+- réparations
+- statuts des interventions
+- coûts des réparations
+
+## Technologies
+
+- PHP 8.2+
+- Laravel 12
+- Blade
+- Vite
+- Tailwind CSS
+- MySQL / PostgreSQL
+- Swagger / L5 Swagger
 
 ## Modules actuels
 
+- Dashboard
 - Clients
 - Véhicules
 - Mécaniciens
 - Réparations
-- Dashboard
-
-## Vision
-
-GARAGIX pourra évoluer vers une solution plus connectée avec :
-
-- assistance panne H24
-- géolocalisation du client
-- recherche de garagistes proches
-- demande de pièces automobile
-- prise de rendez-vous atelier
+- API Clients
 
 ## Documentation API
 
-La documentation Swagger est disponible ici :
+Swagger est disponible ici :
 
 ```text
 http://127.0.0.1:8000/api/documentation
